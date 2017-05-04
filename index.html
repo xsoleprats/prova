@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The HTML5 Herald</title>
+  <meta name="description" content="The HTML5 Herald">
+  <meta name="author" content="SitePoint">
+
+  <link rel="stylesheet" href="css/login.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  
+	<div class="login-page">
+		<div class="form">
+			<form class="register-form">
+			  <input type="text" placeholder="name"/>
+			  <input type="password" placeholder="password"/>
+			  <input type="text" placeholder="email address"/>
+			  <button>create</button>
+			  <p class="message">Already registered? <a href="#">Sign In</a></p>
+			</form>
+			<form class="login-form">
+			  <input id="username" type="text" placeholder="username"/>
+			  <input id="pwd" type="password" placeholder="password"/>
+			  <button>log in</button>
+			  <p class="message">Not registered? <a href="#">Create an account</a></p>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+
+<script>
+$('.message a').click(function(){
+   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+});
+
+$('.login-form').submit(function() {
+	console.log(8);
+	var username = $('#username').val();
+	var pwd = $('#pwd').val();
+	$.ajax({
+		url: "https://test2.aim-solo.com/ajax/APPLogin?username=" + username + "&password=" + pwd,
+		success: function(data) {
+			// Arriba la resposta
+			console.log(data);
+			alert(data);
+			//console.log(data);
+			// table.ajax.reload(null, false);
+			// $('#icon_spin').hide();
+			// $('#p_send').text("<?php echo __("La teva autocandidatura s'ha enviat correctament.")?>");
+			// $('#btn_send').hide();
+			// $('#btn_sent_ok').show();
+			// $('#btn_send_cancel').hide();
+		}
+	});
+});
+</script>
+
